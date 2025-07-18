@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Task Manager</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+  <h1>Task Manager</h1>
+</header>
+<main>
+  <!-- Add New Task -->
+  <section>
+    <h2>Add New Task</h2>
+    <form method="post" th:action="@{/tasks}">
+      <label for="serial">Serial:</label>
+      <input id="serial" name="serial" required style="margin-right: 10px;" type="number">
+
+      <label for="title">Title:</label>
+      <input id="title" name="title" required style="margin-right: 10px;" type="text">
+      <label for="description">Description:</label>
+      <input id="description" name="description" required style="margin-right: 10px;" type="text">
+      <label for="completed">Completed:</label>
+      <select id="completed" name="completed" style="margin-right: 10px;">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+      <button type="submit">Add Task</button>
+    </form>
+  </section>
+
+  <!-- Task List -->
+  <section>
+    <h2>Task List</h2>
+    <table>
+      <thead style="background-color: yellow;">
+      <tr>
+        <th>Serial</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="task : ${tasks}">
+        <td th:text="${task.serial}"></td>
+
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.completed} ? 'Yes' : 'No'"></td>
+        <td th:text="${#temporals.format(task.date, 'yyyy-MM-dd HH:mm')}"></td>
+        <td>
+          <a th:href="@{'/tasks/edit/' + ${task.id}}">
+            <button style="background-color: green; color: white;">Edit</button>
+          </a>
+          <form method="post" style="display:inline;" th:action="@{'/tasks/' + ${task.id}}">
+            <input name="_method" type="hidden" value="delete">
+            <button style="background-color: red; color: white;" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Edit Task</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Edit Task</h1>
+</header>
+<main>
+    <form method="post" th:action="@{'/tasks/edit/' + ${task.id}}">
+        <label for="serial">Serial:</label>
+        <input id="serial" name="serial" required th:value="${task.serial}" type="number">
+
+        <label for="title">Title:</label>
+        <input id="title" name="title" required th:value="${task.title}" type="text">
+
+        <label for="description">Description:</label>
+        <input id="description" name="description" required th:value="${task.description}" type="text">
+
+        <label for="completed">Completed:</label>
+        <select id="completed" name="completed">
+            <option th:selected="${!task.completed}" value="false">No</option>
+            <option th:selected="${task.completed}" value="true">Yes</option>
+        </select>
+
+<!--        <label for="date">Date:</label>-->
+<!--        <input id="date" name="date" readonly th:value="${#temporals.format(task.date, 'yyyy-MM-dd HH:mm')}" type="text">-->
+
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="/tasks">Back to Task List</a>
+</main>
+</body>
+</html>
+
