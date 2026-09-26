@@ -1,42 +1,25 @@
-# Task Manager Application
+# Task Manager — Spring Boot
 
-This repository contains a Spring Boot project for managing tasks using Spring Web, Spring Data JPA, and MySQL.
+A REST-based task management application built with **Java Spring Boot**, **Spring Data JPA**, and **MySQL**.
 
-## Getting Started
+## Features
+- Create, retrieve, update, and delete tasks
+- MySQL persistence
+- REST API testing with Postman
 
-Follow these steps to set up and run the application locally:
+## Tech Stack
+Java · Spring Boot · Spring Web · Spring Data JPA · MySQL · Postman · Maven
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/TaskManager.git
-    ```
+## Run Locally
+```bash
+git clone https://github.com/ssunnysaurabh/TaskManager-SpringBoot.git
+cd TaskManager-SpringBoot
+```
 
-2. **Setup MySQL:**
-   - Start your SQL server and ensure it is running on port 3306.
-   - Create a database named `task`.
+Create a MySQL database named `task`, configure the credentials in `application.properties`, then run the Spring Boot application from your IDE.
 
-3. **Run the Spring Boot Application:**
-   - Open the project in your preferred IDE.
-   - Build and run the Spring Boot application.
-   - Make changes in the application.properties according to your username and password.
+## What I Practiced
+REST API development, CRUD operations, JPA persistence, MySQL integration, and backend application structure.
 
-4. **Using Postman:**
-   - Use Postman for making POST, PUT, and DELETE requests to interact with the application's REST endpoints.
-
-5. **Sample Images:**
-   Below are some images demonstrating the working of the application.
-
-   **Post query using postman:**
-   ![Post query using postman](sample_images/img_1.png)<br><br><br>
-
-    **Get query using browser:**
-   ![Get query using browser](sample_images/img_2.png)<br.<br><br>
-
-   **PUT query using postman:**
-   ![PUT query using postman](sample_images/img_3.png) <br><br><br>
-
-     **sql Table:**
-   ![SQL table](sample_images/img_4.png)
-
-   
-
+## Author
+**Sunny Saurabh** · [GitHub](https://github.com/ssunnysaurabh) · [LinkedIn](https://www.linkedin.com/in/sunny-saurabh-287945236/)
